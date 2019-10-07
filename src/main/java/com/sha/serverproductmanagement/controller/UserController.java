@@ -24,7 +24,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserController {
     private final JwtTokenProvider tokenProvider;
-    private final  UserService userService;
+    private final UserService userService;
     private final ProductService productService;
     private final TransactionService transactionService;
 

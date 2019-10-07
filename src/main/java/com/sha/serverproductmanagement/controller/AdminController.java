@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AdminController {
     private final UserService userService;
-    private final  ProductService productService;
+    private final ProductService productService;
     private final TransactionService transactionService;
 
     @PutMapping("/api/admin/user-update")

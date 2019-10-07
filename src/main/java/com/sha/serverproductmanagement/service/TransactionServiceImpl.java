@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service
 @Transactional
-//It is not necessary. You can use it, if you have multiple database operation in a single service method.
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class TransactionServiceImpl implements TransactionService {
     private final TransactionRepository transactionRepository;

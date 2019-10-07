@@ -7,6 +7,7 @@ import com.sha.serverproductmanagement.model.User;
 import com.sha.serverproductmanagement.service.ProductService;
 import com.sha.serverproductmanagement.service.TransactionService;
 import com.sha.serverproductmanagement.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,19 +21,12 @@ import java.security.Principal;
 import java.time.LocalDateTime;
 
 @RestController
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserController {
-
-    @Autowired
-    private JwtTokenProvider tokenProvider;
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private ProductService productService;
-
-    @Autowired
-    private TransactionService transactionService;
+    private final JwtTokenProvider tokenProvider;
+    private final  UserService userService;
+    private final ProductService productService;
+    private final TransactionService transactionService;
 
     @PostMapping("/api/user/registration")
     public ResponseEntity<?> register(@RequestBody User user) {

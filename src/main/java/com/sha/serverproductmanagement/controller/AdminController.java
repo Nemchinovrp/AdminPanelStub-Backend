@@ -6,22 +6,18 @@ import com.sha.serverproductmanagement.model.User;
 import com.sha.serverproductmanagement.service.ProductService;
 import com.sha.serverproductmanagement.service.TransactionService;
 import com.sha.serverproductmanagement.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AdminController {
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private ProductService productService;
-
-    @Autowired
-    private TransactionService transactionService;
+    private final UserService userService;
+    private final  ProductService productService;
+    private final TransactionService transactionService;
 
     @PutMapping("/api/admin/user-update")
     public ResponseEntity<?> updateUser(@RequestBody User user) {

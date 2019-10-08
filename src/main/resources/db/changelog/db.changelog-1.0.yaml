@@ -49,6 +49,7 @@ databaseChangeLog:
               - column:
                   name: explanation
                   type: varchar(255)
+
   - changeSet:
       id: 3
       author: nemchin
@@ -143,6 +144,8 @@ databaseChangeLog:
                   type: datetime
                   constraints:
                     nullable: false
+
+
   - changeSet:
       id: 5
       author: nemchin

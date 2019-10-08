@@ -25,7 +25,6 @@ databaseChangeLog:
               - column:
                   name: role
                   type: varchar(255)
-
   - changeSet:
       id: 2
       author: nemchin
@@ -49,7 +48,6 @@ databaseChangeLog:
               - column:
                   name: explanation
                   type: varchar(255)
-
   - changeSet:
       id: 3
       author: nemchin
@@ -114,7 +112,6 @@ databaseChangeLog:
               - column:
                   name: explanation
                   value: "Product is so effective and has many attributes like X, Y, Z. Also, we can say about it..."
-
   - changeSet:
       id: 4
       author: nemchin
@@ -144,7 +141,6 @@ databaseChangeLog:
                   type: datetime
                   constraints:
                     nullable: false
-
 
   - changeSet:
       id: 5

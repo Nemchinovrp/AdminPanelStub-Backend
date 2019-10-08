@@ -13,6 +13,6 @@ services:
 #      - "./my.conf:/etc/mysql/conf.d/config-file.cnf"
 #      - "./data:/var/lib/mysql:rw"
 #     my.cong и data должны быть в текущей директории
-
+# подключаться локально по localhost с пользователем root, паролем root по порту 3308
 
 

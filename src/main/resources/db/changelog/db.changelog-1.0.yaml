@@ -1,0 +1,166 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: nemchin
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(255)
+              - column:
+                  name: password
+                  type: varchar(255)
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: role
+                  type: varchar(255)
+
+  - changeSet:
+      id: 2
+      author: nemchin
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: price
+                  type: double
+              - column:
+                  name: explanation
+                  type: varchar(255)
+  - changeSet:
+      id: 3
+      author: nemchin
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: "Product 1"
+              - column:
+                  name: price
+                  value: 19.99
+              - column:
+                  name: explanation
+                  value: "Product is so effective and has many attributes like X, Y, Z. Also, we can say about it..."
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: "Product 2"
+              - column:
+                  name: price
+                  value: 96.99
+              - column:
+                  name: explanation
+                  value: "Product is so effective and has many attributes like X, Y, Z. Also, we can say about it..."
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: "Product 3"
+              - column:
+                  name: price
+                  value: 25.99
+              - column:
+                  name: explanation
+                  value: "Product is so effective and has many attributes like X, Y, Z. Also, we can say about it..."
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: "Product 4"
+              - column:
+                  name: price
+                  value: 45.99
+              - column:
+                  name: explanation
+                  value: "Product is so effective and has many attributes like X, Y, Z. Also, we can say about it..."
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: "Product 5"
+              - column:
+                  name: price
+                  value: 68.99
+              - column:
+                  name: explanation
+                  value: "Product is so effective and has many attributes like X, Y, Z. Also, we can say about it..."
+
+  - changeSet:
+      id: 4
+      author: nemchin
+      changes:
+        - createTable:
+            tableName: transaction
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: purchase_date
+                  type: datetime
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 5
+      author: nemchin
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: product_id
+            baseTableName: transaction
+            constraintName: fk_tran_product
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: product
+
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: transaction
+            constraintName: fk_tran_user
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: user

@@ -20,3 +20,8 @@ $ cd server-product-management
 $ gradlew bootJar
 $ gradlew bootRun
 ```
+
+#DOCKER
+1) docker build -t server-product .
+2) docker run -p 8080:8080 server-product
+

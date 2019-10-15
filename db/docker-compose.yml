@@ -6,12 +6,12 @@ services:
     image: mysql:8.0.2
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: dbproduct
+      MYSQL_DATABASE: travelbd
     ports:
       - "3308:3306"
-#    volumes:
+    volumes:
+      - "./data:/var/lib/mysql:rw"
 #      - "./my.conf:/etc/mysql/conf.d/config-file.cnf"
-#      - "./data:/var/lib/mysql:rw"
 #     my.cong и data должны быть в текущей директории
 # подключаться локально по localhost с пользователем root, паролем root по порту 3308
 
